@@ -59,7 +59,7 @@ firebaseDb.child(`tareas/logistica/${currentId}`).set(
 )
   }
   const onDelete = key =>{
-    if(window.confirm('¿Esta seguro de eliminar la tarea?')){
+    if(window.confirm('¿Esta segura de eliminar la tarea?')){
       firebaseDb.child(`tareas/logistica/${key}`).remove(
         err =>{
           if(err)
