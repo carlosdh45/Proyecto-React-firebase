@@ -2,14 +2,14 @@ import React,{useState,useEffect} from "react";
 import '../App.css';
 import firebase from 'firebase';
 
-const VentaFormulario=(props)=>{
+const LacteosFormulario=(props)=>{
 const initialFieldValues ={
-    descripcion:'',
-    ejecutable:'',
-    encargado:'',
-    status:'',
-    observacion:'',
-    incidencia:'',
+    Producto:'',
+    Existencia:'',
+    Id:'',
+    Estado:'',
+    Ingreso:'',
+    Editar:'',
     image:[]
 }   
 
@@ -69,8 +69,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Descripcion" name="descripcion"
-                value={values.descripcion}
+                <input className="form-control" placeholder="Producto" name="Producto"
+                value={values.Producto}
                 onChange={handleInputChange}
                 />
             </div>
@@ -83,8 +83,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Ejecutable" name="ejecutable"
-                value={values.ejecutable}
+                <input className="form-control" placeholder="Existencia" name="Existencia"
+                value={values.Existencia}
                 onChange={handleInputChange}
                 />
             </div>
@@ -97,8 +97,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Encargado" name="encargado"
-                value={values.encargado}
+                <input className="form-control" placeholder="Id" name="Id"
+                value={values.Id}
                 onChange={handleInputChange}
                 />
             </div>
@@ -113,14 +113,14 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                {/* <input className="form-control" placeholder="Status" name="status"
-                value={values.status}
+                {/* <input className="form-control" placeholder="Estado" name="Estado"
+                value={values.Estado}
                 onChange={handleInputChange}
                 /> */}
-                <select required className="form-control"  name="status" value={values.status}
+                <select required className="form-control"  name="Estado" value={values.Estado}
                 onChange={handleInputChange}>
                     
-    <option  value="" disabled  hidden>Status</option>
+    <option  value="" disabled  hidden>Estado</option>
   <option  >Exitoso</option>
   <option >En Proceso</option>
   <option >Fallido</option>
@@ -136,8 +136,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Observacion" name="observacion"
-                value={values.observacion}
+                <input className="form-control" placeholder="Ingreso" name="Ingreso"
+                value={values.Ingreso}
                 onChange={handleInputChange}
                 />
             </div>
@@ -149,14 +149,14 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Incidencia" name="incidencia"
-                value={values.incidencia}
+                <input className="form-control" placeholder="Departamento" name="Departamento"
+                value={values.Departamento}
                 onChange={handleInputChange}
                 />
             </div>
             <div className="input-group mb-3">
   <div className="input-group-prepend">
-    <span className="input-group-text">Subir Evidencia</span>
+    <span className="input-group-text">Imagen</span>
   </div>
   <div className="custom-file">
   <input type="file" className="custom-file-input" id="inputGroupFile01" onChange={handleUpload} name="image"/>
@@ -177,5 +177,5 @@ const handleUpload=e=>{
     );
 }
 
-export default VentaFormulario;
+export default LacteosFormulario;
 

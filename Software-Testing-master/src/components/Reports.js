@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Doughnut,Chart } from "react-chartjs-2";
+import React, {
+  useState,
+  useEffect
+} from "react";
+import {
+  Doughnut,
+  Chart
+} from "react-chartjs-2";
 import axios from "axios";
 import '../App.css';
-var porcentaje=0;
-var porcentaje2=0;
-var porcentaje3=0;
-var porcentaje4=0;
+var porcentaje = 0;
+var porcentaje2 = 0;
+var porcentaje3 = 0;
+var porcentaje4 = 0;
 
 Chart.pluginService.register({
-  beforeDraw: function(chart) {
+  beforeDraw: function (chart) {
     if (chart.config.options.elements.center) {
       // Get ctx from string
       var ctx = chart.chart.ctx;
@@ -99,57 +105,55 @@ const Dankmemes = () => {
   const chart = () => {
 
     const empAge = [];
-   
+
     axios
       .get("https://react-crud-fc782.firebaseio.com/tareas/recursos-humanos.json")
       .then(res => {
         console.log(res);
         for (let dataObj in res.data) {
-  
+
           empAge.push(res.data[dataObj].status);
         }
-      
-  
-      
+
+
+
         const result = empAge.reduce((a, c) => a.set(c, (a.get(c) || 0) + 1), new Map());
-console.log(result);
-const label=[];
-const datas=[];
+        console.log(result);
+        const label = [];
+        const datas = [];
 
-const totalTareas=0;
-var totalExitoso=[];
-for (let [key, value] of result) {
+        const totalTareas = 0;
+        var totalExitoso = [];
+        for (let [key, value] of result) {
 
-  label.push( key);
-  datas.push(value);
-  if(key=="Exitoso"){
-    totalExitoso.push(value);
-  }
-  
-}
-porcentaje=(totalExitoso/empAge.length)*100
+          label.push(key);
+          datas.push(value);
+          if (key == "Exitoso") {
+            totalExitoso.push(value);
+          }
 
-console.log(totalExitoso);
-console.log(porcentaje);
-console.log(label,datas);
+        }
+        porcentaje = (totalExitoso / empAge.length) * 100
+
+        console.log(totalExitoso);
+        console.log(porcentaje);
+        console.log(label, datas);
         setChartData({
           labels: label,
-          datasets: [
-            {
-              label: "level of thiccness",
-              data: datas,
-              backgroundColor:
-               ["rgba(75, 192, 192, 0.6)",
-                "rgba(0, 0, 255, 0.51)",
-                "rgba(30, 221, 255, 1)",
-                " rgba(47, 158, 148, 1)",
-                "rgba(77, 29, 143, 1)",
-                "rgba(150, 29, 143, 1)",
-                "rgba(150, 29, 76, 1)",
-                "rgba(84, 29, 30, 1)"],
-              borderWidth: 4
-            }
-          ]
+          datasets: [{
+            label: "level of thiccness",
+            data: datas,
+            backgroundColor: ["rgba(75, 192, 192, 0.6)",
+              "rgba(0, 0, 255, 0.51)",
+              "rgba(30, 221, 255, 1)",
+              " rgba(47, 158, 148, 1)",
+              "rgba(77, 29, 143, 1)",
+              "rgba(150, 29, 143, 1)",
+              "rgba(150, 29, 76, 1)",
+              "rgba(84, 29, 30, 1)"
+            ],
+            borderWidth: 4
+          }]
         });
       })
       .catch(err => {
@@ -160,57 +164,55 @@ console.log(label,datas);
   const chart2 = () => {
 
     const empAge = [];
-   
+
     axios
-      .get("https://react-crud-fc782.firebaseio.com/tareas/ventas.json")
+      .get("https://react-crud-fc782.firebaseio.com/tareas/lacteos.json")
       .then(res => {
         console.log(res);
         for (let dataObj in res.data) {
-  
+
           empAge.push(res.data[dataObj].status);
         }
-      
-  
-      
+
+
+
         const result = empAge.reduce((a, c) => a.set(c, (a.get(c) || 0) + 1), new Map());
-console.log(result);
-const label=[];
-const datas=[];
+        console.log(result);
+        const label = [];
+        const datas = [];
 
-const totalTareas=0;
-var totalExitoso=[];
-for (let [key, value] of result) {
+        const totalTareas = 0;
+        var totalExitoso = [];
+        for (let [key, value] of result) {
 
-  label.push( key);
-  datas.push(value);
-  if(key=="Exitoso"){
-    totalExitoso.push(value);
-  }
-  
-}
-porcentaje2=(totalExitoso/empAge.length)*100
+          label.push(key);
+          datas.push(value);
+          if (key == "Exitoso") {
+            totalExitoso.push(value);
+          }
 
-console.log(totalExitoso);
-console.log(porcentaje2);
-console.log(label,datas);
+        }
+        porcentaje2 = (totalExitoso / empAge.length) * 100
+
+        console.log(totalExitoso);
+        console.log(porcentaje2);
+        console.log(label, datas);
         setChartData2({
           labels: label,
-          datasets: [
-            {
-              label: "level of thiccness",
-              data: datas,
-              backgroundColor:
-               ["rgba(75, 192, 192, 0.6)",
-                "rgba(0, 0, 255, 0.51)",
-                "rgba(30, 221, 255, 1)",
-                " rgba(47, 158, 148, 1)",
-                "rgba(77, 29, 143, 1)",
-                "rgba(150, 29, 143, 1)",
-                "rgba(150, 29, 76, 1)",
-                "rgba(84, 29, 30, 1)"],
-              borderWidth: 4
-            }
-          ]
+          datasets: [{
+            label: "level of thiccness",
+            data: datas,
+            backgroundColor: ["rgba(75, 192, 192, 0.6)",
+              "rgba(0, 0, 255, 0.51)",
+              "rgba(30, 221, 255, 1)",
+              " rgba(47, 158, 148, 1)",
+              "rgba(77, 29, 143, 1)",
+              "rgba(150, 29, 143, 1)",
+              "rgba(150, 29, 76, 1)",
+              "rgba(84, 29, 30, 1)"
+            ],
+            borderWidth: 4
+          }]
         });
       })
       .catch(err => {
@@ -221,57 +223,55 @@ console.log(label,datas);
   const chart3 = () => {
 
     const empAge = [];
-   
+
     axios
       .get("https://react-crud-fc782.firebaseio.com/tareas/contabilidad.json")
       .then(res => {
         console.log(res);
         for (let dataObj in res.data) {
-  
+
           empAge.push(res.data[dataObj].status);
         }
-      
-  
-      
+
+
+
         const result = empAge.reduce((a, c) => a.set(c, (a.get(c) || 0) + 1), new Map());
-console.log(result);
-const label=[];
-const datas=[];
+        console.log(result);
+        const label = [];
+        const datas = [];
 
-const totalTareas=0;
-var totalExitoso=[];
-for (let [key, value] of result) {
+        const totalTareas = 0;
+        var totalExitoso = [];
+        for (let [key, value] of result) {
 
-  label.push( key);
-  datas.push(value);
-  if(key=="Exitoso"){
-    totalExitoso.push(value);
-  }
-  
-}
-porcentaje3=(totalExitoso/empAge.length)*100
+          label.push(key);
+          datas.push(value);
+          if (key == "Exitoso") {
+            totalExitoso.push(value);
+          }
 
-console.log(totalExitoso);
-console.log(porcentaje2);
-console.log(label,datas);
+        }
+        porcentaje3 = (totalExitoso / empAge.length) * 100
+
+        console.log(totalExitoso);
+        console.log(porcentaje2);
+        console.log(label, datas);
         setChartData3({
           labels: label,
-          datasets: [
-            {
-              label: "level of thiccness",
-              data: datas,
-              backgroundColor:
-               ["rgba(75, 192, 192, 0.6)",
-                "rgba(0, 0, 255, 0.51)",
-                "rgba(30, 221, 255, 1)",
-                " rgba(47, 158, 148, 1)",
-                "rgba(77, 29, 143, 1)",
-                "rgba(150, 29, 143, 1)",
-                "rgba(150, 29, 76, 1)",
-                "rgba(84, 29, 30, 1)"],
-              borderWidth: 4
-            }
-          ]
+          datasets: [{
+            label: "level of thiccness",
+            data: datas,
+            backgroundColor: ["rgba(75, 192, 192, 0.6)",
+              "rgba(0, 0, 255, 0.51)",
+              "rgba(30, 221, 255, 1)",
+              " rgba(47, 158, 148, 1)",
+              "rgba(77, 29, 143, 1)",
+              "rgba(150, 29, 143, 1)",
+              "rgba(150, 29, 76, 1)",
+              "rgba(84, 29, 30, 1)"
+            ],
+            borderWidth: 4
+          }]
         });
       })
       .catch(err => {
@@ -282,57 +282,55 @@ console.log(label,datas);
   const chart4 = () => {
 
     const empAge = [];
-   
+
     axios
       .get("https://react-crud-fc782.firebaseio.com/tareas/logistica.json")
       .then(res => {
         console.log(res);
         for (let dataObj in res.data) {
-  
+
           empAge.push(res.data[dataObj].status);
         }
-      
-  
-      
+
+
+
         const result = empAge.reduce((a, c) => a.set(c, (a.get(c) || 0) + 1), new Map());
-console.log(result);
-const label=[];
-const datas=[];
+        console.log(result);
+        const label = [];
+        const datas = [];
 
-const totalTareas=0;
-var totalExitoso=[];
-for (let [key, value] of result) {
+        const totalTareas = 0;
+        var totalExitoso = [];
+        for (let [key, value] of result) {
 
-  label.push( key);
-  datas.push(value);
-  if(key=="Exitoso"){
-    totalExitoso.push(value);
-  }
-  
-}
-porcentaje4=(totalExitoso/empAge.length)*100
+          label.push(key);
+          datas.push(value);
+          if (key == "Exitoso") {
+            totalExitoso.push(value);
+          }
 
-console.log(totalExitoso);
-console.log(porcentaje2);
-console.log(label,datas);
+        }
+        porcentaje4 = (totalExitoso / empAge.length) * 100
+
+        console.log(totalExitoso);
+        console.log(porcentaje2);
+        console.log(label, datas);
         setChartData4({
           labels: label,
-          datasets: [
-            {
-              label: "level of thiccness",
-              data: datas,
-              backgroundColor:
-               ["rgba(75, 192, 192, 0.6)",
-                "rgba(0, 0, 255, 0.51)",
-                "rgba(30, 221, 255, 1)",
-                " rgba(47, 158, 148, 1)",
-                "rgba(77, 29, 143, 1)",
-                "rgba(150, 29, 143, 1)",
-                "rgba(150, 29, 76, 1)",
-                "rgba(84, 29, 30, 1)"],
-              borderWidth: 4
-            }
-          ]
+          datasets: [{
+            label: "level of thiccness",
+            data: datas,
+            backgroundColor: ["rgba(75, 192, 192, 0.6)",
+              "rgba(0, 0, 255, 0.51)",
+              "rgba(30, 221, 255, 1)",
+              " rgba(47, 158, 148, 1)",
+              "rgba(77, 29, 143, 1)",
+              "rgba(150, 29, 143, 1)",
+              "rgba(150, 29, 76, 1)",
+              "rgba(84, 29, 30, 1)"
+            ],
+            borderWidth: 4
+          }]
         });
       })
       .catch(err => {
@@ -346,95 +344,126 @@ console.log(label,datas);
     chart3();
     chart4();
   }, []);
-  
-  return (
-    <div className="App">
-      <h1>Graficos</h1>
-      <div className="row"> 
-      <div class="column">
-        <Doughnut
-          data={chartData}
-          options={{
-            responsive: true,
-            title: { text: "Status de Tareas de Recursos Humanos" , display: true },
-            elements: {
-              center: {
-                text: "Avance de tareas finalizadas: "+String(Math.round( porcentaje))+ "%",
-                color: '#003AFF', // Default is #000000
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 20, // Default is 20 (as a percentage)
-                minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 25 // Default is 25 (in px), used for when text wraps
-              }
-            }
-          
-          }}
-        />
-        </div>
-        <div class="column">
-        <Doughnut
-          data={chartData2}
-          options={{
-            responsive: true,
-            title: { text: "Status de Tareas de Ventas" , display: true },
-            elements: {
-              center: {
-                text: "Avance de tareas finalizadas: "+String(Math.round( porcentaje2))+ "%",
-                color: '#003AFF', // Default is #000000
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 20, // Default is 20 (as a percentage)
-                minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 25 // Default is 25 (in px), used for when text wraps
-              }
-            }
-          
-          }}
-        />
-        </div>
-      </div>
-      <div className="row"> 
-      <div class="column">
-        <Doughnut
-          data={chartData3}
-          options={{
-            responsive: true,
-            title: { text: "Status de Tareas de Contabilidad" , display: true },
-            elements: {
-              center: {
-                text: "Avance de tareas finalizadas: "+String(Math.round( porcentaje3))+ "%",
-                color: '#003AFF', // Default is #000000
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 20, // Default is 20 (as a percentage)
-                minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 25 // Default is 25 (in px), used for when text wraps
-              }
-            }
-          
-          }}
-        />
-        </div>
-        <div class="column">
-        <Doughnut
-          data={chartData4}
-          options={{
-            responsive: true,
-            title: { text: "Status de Tareas de Logistica" , display: true },
-            elements: {
-              center: {
-                text: "Avance de tareas finalizadas: "+String(Math.round( porcentaje4))+ "%",
-                color: '#003AFF', // Default is #000000
-                fontStyle: 'Arial', // Default is Arial
-                sidePadding: 20, // Default is 20 (as a percentage)
-                minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
-                lineHeight: 25 // Default is 25 (in px), used for when text wraps
-              }
-            }
-          
-          }}
-        />
-        </div>
-      </div>
-    </div>
+
+  return ( <
+    div className = "App" >
+    <
+    h1 > Graficos < /h1> <
+    div className = "row" >
+    <
+    div class = "column" >
+    <
+    Doughnut data = {
+      chartData
+    }
+    options = {
+      {
+        responsive: true,
+        title: {
+          text: "Status de Tareas de Recursos Humanos",
+          display: true
+        },
+        elements: {
+          center: {
+            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje)) + "%",
+            color: '#003AFF', // Default is #000000
+            fontStyle: 'Arial', // Default is Arial
+            sidePadding: 20, // Default is 20 (as a percentage)
+            minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
+            lineHeight: 25 // Default is 25 (in px), used for when text wraps
+          }
+        }
+
+      }
+    }
+    /> <
+    /div> <
+    div class = "column" >
+    <
+    Doughnut data = {
+      chartData2
+    }
+    options = {
+      {
+        responsive: true,
+        title: {
+          text: "Status de Tareas de Ventas",
+          display: true
+        },
+        elements: {
+          center: {
+            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje2)) + "%",
+            color: '#003AFF', // Default is #000000
+            fontStyle: 'Arial', // Default is Arial
+            sidePadding: 20, // Default is 20 (as a percentage)
+            minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
+            lineHeight: 25 // Default is 25 (in px), used for when text wraps
+          }
+        }
+
+      }
+    }
+    /> <
+    /div> <
+    /div> <
+    div className = "row" >
+    <
+    div class = "column" >
+    <
+    Doughnut data = {
+      chartData3
+    }
+    options = {
+      {
+        responsive: true,
+        title: {
+          text: "Status de Tareas de Contabilidad",
+          display: true
+        },
+        elements: {
+          center: {
+            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje3)) + "%",
+            color: '#003AFF', // Default is #000000
+            fontStyle: 'Arial', // Default is Arial
+            sidePadding: 20, // Default is 20 (as a percentage)
+            minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
+            lineHeight: 25 // Default is 25 (in px), used for when text wraps
+          }
+        }
+
+      }
+    }
+    /> <
+    /div> <
+    div class = "column" >
+    <
+    Doughnut data = {
+      chartData4
+    }
+    options = {
+      {
+        responsive: true,
+        title: {
+          text: "Status de Tareas de Logistica",
+          display: true
+        },
+        elements: {
+          center: {
+            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje4)) + "%",
+            color: '#003AFF', // Default is #000000
+            fontStyle: 'Arial', // Default is Arial
+            sidePadding: 20, // Default is 20 (as a percentage)
+            minFontSize: 25, // Default is 20 (in px), set to false and text will not wrap.
+            lineHeight: 25 // Default is 25 (in px), used for when text wraps
+          }
+        }
+
+      }
+    }
+    /> <
+    /div> <
+    /div> <
+    /div>
   );
 };
 

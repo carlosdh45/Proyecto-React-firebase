@@ -17,7 +17,7 @@ const Departamentos=()=>{
         </div>
 
         <div class = "bottondiv">
-        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/ventas">Ventas</a></button>
+        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/Lacteos">Ventas</a></button>
         </div>
 
 

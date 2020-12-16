@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import VentaIncidenciaFormulario from "./VentaIncidenciaFormulario";
+import LacteosIncidenciaFormulario from "./LacteosIncidenciaFormulario";
 import firebaseDb from "../firebase";
 import { AuthContext } from "../auth";
 import * as firebase from 'firebase';
@@ -18,13 +18,13 @@ const logout = async ()=>{
   await firebase.auth().signOut();
 }
 
-const VentasIncidencias=()=>{
+const LacteosIncidencias=()=>{
 
 var[tareaObjects,setTareaObjects] = useState({})
 var[currentId,setCurrentId] = useState('')
 
 useEffect(()=>{
-  firebaseDb.child('tareas/ventas').on('value',snapshot =>{
+  firebaseDb.child('tareas/lacteos').on('value',snapshot =>{
     if(snapshot.val()!=null)
     setTareaObjects({
       ...snapshot.val()
@@ -38,7 +38,7 @@ useEffect(()=>{
 
   const addOrEdit = obj=>{
     if(currentId=='')
-firebaseDb.child('tareas/ventas').push(
+firebaseDb.child('tareas/Lacteos').push(
   obj,
   err =>{
     if(err)
@@ -48,7 +48,7 @@ firebaseDb.child('tareas/ventas').push(
   }
 )
 else
-firebaseDb.child(`tareas/ventas/${currentId}`).set(
+firebaseDb.child(`tareas/Lacteos/${currentId}`).set(
   obj,
   err =>{
     if(err)
@@ -60,7 +60,7 @@ firebaseDb.child(`tareas/ventas/${currentId}`).set(
   }
   const onDelete = key =>{
     if(window.confirm('¿Esta seguro de eliminar la tarea?')){
-      firebaseDb.child(`tareas/ventas/${key}`).remove(
+      firebaseDb.child(`tareas/Lacteos/${key}`).remove(
         err =>{
           if(err)
           console.log(err)
@@ -77,12 +77,12 @@ firebaseDb.child(`tareas/ventas/${currentId}`).set(
         <button class ="btn-cerrar" onClick={logout} >Cerrar Sesion</button>
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
-    <h1 className="display-4 text-center">Listado de Incidencias de Ventas</h1>
+    <h1 className="display-4 text-center">Listado de Incidencias de Lacteos</h1>
   </div>
 </div>
  <div className="row">
  <div className="col-md-5">
-     <VentaIncidenciaFormulario {...({addOrEdit, currentId, tareaObjects})}/>
+     <LacteosIncidenciaFormulario {...({addOrEdit, currentId, tareaObjects})}/>
  </div>
  <div className="col-md-7">
     <table className="table table-borderless table-stripped">
@@ -129,4 +129,4 @@ Object.keys(tareaObjects).map(id=>{
     );
 }
 Page.contextType= AuthContext;
-export default VentasIncidencias;
+export default LacteosIncidencias;

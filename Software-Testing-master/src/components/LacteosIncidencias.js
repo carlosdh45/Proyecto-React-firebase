@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import '../App.css';
 
-const VentaIncidenciaFormulario=(props)=>{
+const LacteosIncidenciaFormulario=(props)=>{
 const initialFieldValues ={
     descripcion:'',
     ejecutable:'',
@@ -139,4 +139,4 @@ const handleFormSubmit= e =>{
     );
 }
 
-export default VentaIncidenciaFormulario;
+export default LacteosIncidenciaFormulario;
