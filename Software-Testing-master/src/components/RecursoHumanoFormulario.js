@@ -4,12 +4,12 @@ import firebase from 'firebase';
 
 const RecursoHumanoFormulario=(props)=>{
 const initialFieldValues ={
-    descripcion:'',
-    ejecutable:'',
-    encargado:'',
+    cliente:'',
+    fecha:'',
+    productos:'',
     status:'',
-    observacion:'',
-    incidencia:'',
+    RTN:'',
+    id:'',
     image:[]
 }   
 
@@ -69,8 +69,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Descripcion" name="descripcion"
-                value={values.descripcion}
+                <input className="form-control" placeholder="Nombre de cliente" name="cliente"
+                value={values.cliente}
                 onChange={handleInputChange}
                 />
             </div>
@@ -83,8 +83,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Ejecutable" name="ejecutable"
-                value={values.ejecutable}
+                <input className="form-control" placeholder="Fecha" name="fecha"
+                value={values.fecha}
                 onChange={handleInputChange}
                 />
             </div>
@@ -97,8 +97,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Encargado" name="encargado"
-                value={values.encargado}
+                <input className="form-control" placeholder="productos" name="productos"
+                value={values.productos}
                 onChange={handleInputChange}
                 />
             </div>
@@ -121,10 +121,9 @@ const handleUpload=e=>{
                 onChange={handleInputChange}>
                     
     <option  value="" disabled  hidden>Status</option>
-  <option  >Exitoso</option>
-  <option >En Proceso</option>
-  <option >Fallido</option>
-  <option >Esperando Correcion</option>
+  <option  >Pagado</option>
+  <option >Pendiente</option>
+ 
 </select>
             </div>
 
@@ -136,8 +135,8 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Observacion" name="observacion"
-                value={values.observacion}
+                <input className="form-control" placeholder="RTN" name="RTN"
+                value={values.RTN}
                 onChange={handleInputChange}
                 />
             </div>
@@ -149,14 +148,14 @@ const handleUpload=e=>{
                 </div>
                 </div>
 
-                <input className="form-control" placeholder="Incidencia" name="incidencia"
-                value={values.incidencia}
+                <input className="form-control" placeholder="Id" name="id"
+                value={values.id}
                 onChange={handleInputChange}
                 />
             </div>
             <div className="input-group mb-3">
   <div className="input-group-prepend">
-    <span className="input-group-text">Subir Evidencia</span>
+    <span className="input-group-text">Codigo de barra</span>
   </div>
   <div className="custom-file">
   <input type="file" className="custom-file-input" id="inputGroupFile01" onChange={handleUpload} name="image"/>

@@ -12,17 +12,16 @@ const Departamentos=()=>{
         <form>
         <div className="form-group">
         <div class = "bottondiv">
-        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/recursos-humanos">Recursos Humanos</a></button>
+        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/recursos-humanos">Caja</a></button>
          </div>
         </div>
 
         <div class = "bottondiv">
-        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/Lacteos">Ventas</a></button>
+        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/Lacteos">Registrar Productos</a></button>
         </div>
 
-
         <div class = "bottondiv">
-        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/contabilidad">Contabilidad</a></button>
+        <button class = "deptbottons" type="button"><a class="nav-link" href="http://localhost:3000/contabilidad">Departamentos de productos</a></button>
         </div>
 
 

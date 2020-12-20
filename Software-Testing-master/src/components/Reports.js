@@ -166,7 +166,7 @@ const Dankmemes = () => {
     const empAge = [];
 
     axios
-      .get("https://react-crud-fc782.firebaseio.com/tareas/lacteos.json")
+      .get("https://react-crud-fc782.firebaseio.com/tareas/Productos.json")
       .then(res => {
         console.log(res);
         for (let dataObj in res.data) {
@@ -360,12 +360,12 @@ const Dankmemes = () => {
       {
         responsive: true,
         title: {
-          text: "Status de Tareas de Recursos Humanos",
+          text: "Status de Personal",
           display: true
         },
         elements: {
           center: {
-            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje)) + "%",
+            text: "Estado de Personal: " + String(Math.round(porcentaje)) + "%",
             color: '#003AFF', // Default is #000000
             fontStyle: 'Arial', // Default is Arial
             sidePadding: 20, // Default is 20 (as a percentage)
@@ -387,12 +387,12 @@ const Dankmemes = () => {
       {
         responsive: true,
         title: {
-          text: "Status de Tareas de Ventas",
+          text: "Status de Productos",
           display: true
         },
         elements: {
           center: {
-            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje2)) + "%",
+            text: "Estado de productos: " + String(Math.round(porcentaje2)) + "%",
             color: '#003AFF', // Default is #000000
             fontStyle: 'Arial', // Default is Arial
             sidePadding: 20, // Default is 20 (as a percentage)
@@ -417,12 +417,12 @@ const Dankmemes = () => {
       {
         responsive: true,
         title: {
-          text: "Status de Tareas de Contabilidad",
+          text: "Status Caja",
           display: true
         },
         elements: {
           center: {
-            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje3)) + "%",
+            text: "Movimiento de caja: " + String(Math.round(porcentaje3)) + "%",
             color: '#003AFF', // Default is #000000
             fontStyle: 'Arial', // Default is Arial
             sidePadding: 20, // Default is 20 (as a percentage)
@@ -444,12 +444,12 @@ const Dankmemes = () => {
       {
         responsive: true,
         title: {
-          text: "Status de Tareas de Logistica",
+          text: "Status de Logistica",
           display: true
         },
         elements: {
           center: {
-            text: "Avance de tareas finalizadas: " + String(Math.round(porcentaje4)) + "%",
+            text: "Estado Logistico: " + String(Math.round(porcentaje4)) + "%",
             color: '#003AFF', // Default is #000000
             fontStyle: 'Arial', // Default is Arial
             sidePadding: 20, // Default is 20 (as a percentage)

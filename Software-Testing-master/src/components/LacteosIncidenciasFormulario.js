@@ -77,7 +77,7 @@ firebaseDb.child(`tareas/Lacteos/${currentId}`).set(
         <button class ="btn-cerrar" onClick={logout} >Cerrar Sesion</button>
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
-    <h1 className="display-4 text-center">Listado de Incidencias de Lacteos</h1>
+    <h1 className="display-4 text-center">Listado de Productos</h1>
   </div>
 </div>
  <div className="row">

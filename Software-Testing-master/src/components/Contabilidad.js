@@ -76,7 +76,7 @@ firebaseDb.child(`tareas/contabilidad/${currentId}`).set(
         <button onClick={logout} >Cerrar Sesion</button>
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
-    <h1 className="display-4 text-center">Registrar Tareas de Contabilidad</h1>
+    <h1 className="display-4 text-center">Mercadito Contabilidad</h1>
   </div>
 </div>
  <div className="row">

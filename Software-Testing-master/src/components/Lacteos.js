@@ -24,7 +24,7 @@ var[tareaObjects,setTareaObjects] = useState({})
 var[currentId,setCurrentId] = useState('')
 
 useEffect(()=>{
-  firebaseDb.child('tareas/lacteos').on('value',snapshot =>{
+  firebaseDb.child('tareas/Productos').on('value',snapshot =>{
     if(snapshot.val()!=null)
     setTareaObjects({
       ...snapshot.val()
@@ -38,7 +38,7 @@ useEffect(()=>{
 
   const addOrEdit = obj=>{
     if(currentId=='')
-firebaseDb.child('tareas/lacteos').push(
+firebaseDb.child('tareas/Productos').push(
   obj,
   err =>{
     if(err)
@@ -48,7 +48,7 @@ firebaseDb.child('tareas/lacteos').push(
   }
 )
 else
-firebaseDb.child(`tareas/lacteos/${currentId}`).set(
+firebaseDb.child(`tareas/Productos/${currentId}`).set(
   obj,
   err =>{
     if(err)
@@ -60,7 +60,7 @@ firebaseDb.child(`tareas/lacteos/${currentId}`).set(
   }
   const onDelete = key =>{
     if(window.confirm('¿Esta seguro de eliminar la tarea?')){
-      firebaseDb.child(`tareas/lacteos/${key}`).remove(
+      firebaseDb.child(`tareas/Productos/${key}`).remove(
         err =>{
           if(err)
           console.log(err)
@@ -76,7 +76,7 @@ firebaseDb.child(`tareas/lacteos/${currentId}`).set(
         <button onClick={logout} >Cerrar Sesion</button>
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
-    <h1 className="display-4 text-center">Registrar Tareas de Lacteos</h1>
+    <h1 className="display-4 text-center">Registrar Productos</h1>
   </div>
 </div>
  <div className="row">

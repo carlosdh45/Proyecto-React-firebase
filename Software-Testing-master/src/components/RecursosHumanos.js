@@ -24,7 +24,7 @@ var[tareaObjects,setTareaObjects] = useState({})
 var[currentId,setCurrentId] = useState('')
 
 useEffect(()=>{
-  firebaseDb.child('tareas/recursos-humanos').on('value',snapshot =>{
+  firebaseDb.child('tareas/caja').on('value',snapshot =>{
     if(snapshot.val()!=null)
     setTareaObjects({
       ...snapshot.val()
@@ -38,7 +38,7 @@ useEffect(()=>{
 
   const addOrEdit = obj=>{
     if(currentId=='')
-firebaseDb.child('tareas/recursos-humanos').push(
+firebaseDb.child('tareas/caja').push(
   obj,
   err =>{
     if(err)
@@ -48,7 +48,7 @@ firebaseDb.child('tareas/recursos-humanos').push(
   }
 )
 else
-firebaseDb.child(`tareas/recursos-humanos/${currentId}`).set(
+firebaseDb.child(`tareas/caja/${currentId}`).set(
   obj,
   err =>{
     if(err)
@@ -60,7 +60,7 @@ firebaseDb.child(`tareas/recursos-humanos/${currentId}`).set(
   }
   const onDelete = key =>{
     if(window.confirm('¿Esta seguro de eliminar la tarea?')){
-      firebaseDb.child(`tareas/recursos-humanos/${key}`).remove(
+      firebaseDb.child(`tareas/caja/${key}`).remove(
         err =>{
           if(err)
           console.log(err)
@@ -76,7 +76,7 @@ firebaseDb.child(`tareas/recursos-humanos/${currentId}`).set(
         <button onClick={logout} >Cerrar Sesion</button>
         <div className="jumbotron jumbotron-fluid">
   <div className="container">
-    <h1 className="display-4 text-center">Registrar Tareas de Recursos Humanos</h1>
+    <h1 className="display-4 text-center">Caja</h1>
   </div>
 </div>
  <div className="row">
@@ -87,25 +87,25 @@ firebaseDb.child(`tareas/recursos-humanos/${currentId}`).set(
     <table className="table table-borderless table-stripped">
       <thead className="thead-light">
         <tr>
-          <th>Descripcion</th>
-          <th>Ejecutable</th>
-          <th>Encargado</th>
+          <th>Cliente</th>
+          <th>fecha</th>
+          <th>Productos</th>
           <th>Status</th>
-          <th>Observacion</th>
+          <th>RTN</th>
           <th>Acciones</th>
-          <th>Incidencia</th>
-          <th>Evidencia</th>
+          <th>Id</th>
+          <th>Codigo de barra</th>
         </tr>
       </thead>
       <tbody>
         {
 Object.keys(tareaObjects).map(id=>{
   return<tr key={id}>
-    <td>{tareaObjects[id].descripcion}</td>
-    <td>{tareaObjects[id].ejecutable}</td>
-    <td>{tareaObjects[id].encargado}</td>
+    <td>{tareaObjects[id].cliente}</td>
+    <td>{tareaObjects[id].fecha}</td>
+    <td>{tareaObjects[id].productos}</td>
     <td>{tareaObjects[id].status}</td>
-    <td>{tareaObjects[id].observacion}</td>
+    <td>{tareaObjects[id].id}</td>
     <td>
       <a className="btn text-primary" onClick={ () => {setCurrentId(id) } } >
       <i className="fas fa-pencil-alt"></i>
